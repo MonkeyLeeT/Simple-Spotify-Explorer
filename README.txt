@@ -1,4 +1,4 @@
-#Simple Spotify Explorer
+# Simple Spotify Explorer
 A simple spotify search engine with design concern focused on UI/UIX. Geez, this really takes more time than it looks!
 
 ### How to Run
