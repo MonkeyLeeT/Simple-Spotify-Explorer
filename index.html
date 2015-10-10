@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Simple Spotify Explorer</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/semantic.min.js"></script>
+    <script type="text/javascript" src="js/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+<div class="ui grid container">
+    <div class="six wide column">
+    <h1 class="ui green header">
+        <i class="spotify icon"></i>
+
+        <div class="content">Simple Spotify Explorer</div>
+        <div class="sub header">
+            <div class="ui ordered list">
+                <div class="item">Type one or more options below and click on "<u>Search</u>".</div>
+                <div class="item"><u>Click</u> on cover photo to play 30 seconds of the song.</div>
+            </div>
+        </div>
+    </h1>
+    <form id="search-form" class="ui form six wide column">
+        <div class="ui labeled input field">
+            <div class="ui label">Artist</div>
+            <input type="text" id="artist" class="field" name="artist" placeholder="Name of the artist">
+        </div>
+        <div class="ui labeled input field">
+            <div class="ui label">Album</div>
+            <input type="text" id="album" class="field" name="album" placeholder="Name of the album"></div>
+        <div class="ui labeled input field">
+            <div class="ui label">Song</div>
+            <input type="text" id="song" class="field" name="song" placeholder="Name of the song"></div>
+        <div class="ui labeled input field">
+            <div class="ui label">Genre</div>
+            <input type="text" id="genre" class="field" name="genre" placeholder="Genre of the song"></div>
+        <div class="ui labeled input field">
+            <div class="ui label">Year</div>
+            <input type="text" id="yearFrom" class="field" name="yearFrom" placeholder="At/From e.g. 2000">
+
+            <div class="ui label">To</div>
+            <input type="text" id="yearTo" class="field" name="yearTo" placeholder="To, optional"></div>
+        <button id="search" class="ui labeled icon green button" type="submit"><i class="search icon"></i>Search
+        </button>
+        <div id="prompt" class="ui error message"></i>
+        </div>
+    </form></div>
+    <div id="resultArea" class="ten wide column">
+        <div class="pagination icon ui buttons row" style="display:none">
+            <button id="prev" class="ui disabled red button"><i class="fast backward icon"></i></br> Prev 10
+            </button>
+            <div class="or" ></div>
+            <button id="for" class="ui green button"> current </br> total
+            </button>
+            <div class="or"></div>
+            <button id="next" class="ui disabled blue button"><i class="fast forward icon"></i></br> Next 10
+            </button>
+        </div>
+
+        <div id="results" class="ui list">
+            <script id="results-template" type="text/x-handlebars-template">
+                {{#each}}
+                <div class="item">
+                    <div class="ui small circular image">
+                        <img class="cover" src="{{album.images.0.url}}" data-album-id="{{id}}"></div>
+                    <div class="content">
+                        <div class="header">{{name}}</div>
+                        <div class="description">
+                            <p>Album: {{album.name}}, Artist: {{artists.0.name}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </script>
+        </div>
+        <div id="noresult" class="ui error hidden message"><i class="close icon"></i>
+
+            <div class="header">
+                Oops nothing can be found!
+            </div>
+            <ul class="list">
+                <li>Double check your keywords.</li>
+                <li>Try to use multiple conditions.</li>
+                <li>Try to use more precise keywords</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

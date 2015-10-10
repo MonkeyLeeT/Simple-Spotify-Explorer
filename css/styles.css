@@ -1,0 +1,20 @@
+body {
+    padding: 2%;
+}
+#search-form, .form-control {
+    margin-bottom: 20px;
+}
+.cover:hover {
+    cursor: pointer;
+}
+.cover.playing {
+    border: 5px solid forestgreen;
+}
+
+.ui.label {
+    width: 20%;
+}
+
+#for {
+    cursor: default;
+}
